@@ -1,3 +1,0 @@
-public class PushTest {
-    //This is Push test...
-}
