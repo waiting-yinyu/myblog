@@ -1,5 +1,7 @@
 package com.alvin.springbootvue.service.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,15 +21,30 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserMapper userMapper;
-	
+
 	@Override
-	public User findByName(String name) {
-		return userMapper.findByName(name);
+	public List<User> selectUserAll() {
+		return userMapper.selectUserAll();
 	}
 
 	@Override
-	public User findAll() {
-		return userMapper.findAll();
+	public User selectById(int id) {
+		User user = userMapper.selectById(id);
+        return user;
 	}
-	
+
+	@Override
+	public void addUser(User user) {
+		userMapper.addUser(user);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		userMapper.updateUser(user);
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		userMapper.deleteUser(id);
+	}
 }
