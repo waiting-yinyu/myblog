@@ -1,12 +1,11 @@
 package com.alvin.springbootvue.controller;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alvin.springbootvue.entity.User;
-import com.alvin.springbootvue.mapper.UserMapper;
+import com.alvin.springbootvue.service.UserService;
 
 /**
  * @author: 尹宇
@@ -17,15 +16,15 @@ import com.alvin.springbootvue.mapper.UserMapper;
 @RestController
 public class UserController {
 	@Autowired
-	private UserMapper userMapper;
+	private UserService userService;
 
 	@RequestMapping("/getAllUser")
 	public User getAllUser() {
-		return userMapper.findAll(); 
+		return userService.findAll(); 
 	}
 	
 	@RequestMapping("/getUserByName")
 	public User getUserByName(String name){
-		return userMapper.findByName(name);
+		return userService.findByName(name);
 	}
 }
