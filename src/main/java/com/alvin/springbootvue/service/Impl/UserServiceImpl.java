@@ -10,14 +10,12 @@ import com.alvin.springbootvue.mapper.UserMapper;
 import com.alvin.springbootvue.service.UserService;
 
 /**
-*
-*
-*@author: 尹宇
-*@mail yinyu@zving.com
-*@date:2019年1月5日
-*/
+ * @author: 尹宇
+ * @mail yinyu@zving.com
+ * @date:2019年1月5日
+ */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
@@ -29,8 +27,12 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User selectById(int id) {
-		User user = userMapper.selectById(id);
-        return user;
+		return userMapper.selectById(id);
+	}
+
+	@Override
+	public List<User> selectByName(String userName) {
+		return userMapper.selectByName(userName);
 	}
 
 	@Override
@@ -47,4 +49,5 @@ public class UserServiceImpl implements UserService{
 	public void deleteUser(int id) {
 		userMapper.deleteUser(id);
 	}
+
 }

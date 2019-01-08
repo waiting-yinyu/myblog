@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="center" style="width: 752px;">
+        <el-input v-model="searchContent" placeholder="请输入内容"></el-input><el-button @click="search(searchContent)">默认按钮</el-button>
         <el-table :data = 'userData' height="1080" stripe border style="width: 100%">
             <el-table-column prop="id" label="ID" width="80"></el-table-column>
             <el-table-column prop="userName" label="名字" width="120"></el-table-column>
@@ -24,7 +25,8 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            userData: ''
+            userData: '',
+            searchContent: ''
         }
     },
     methods: {
@@ -68,7 +70,24 @@ export default {
                     this.$log.debug(error)  
                 })
             }
-        } 
+        },
+        search(searchName) {
+             this.$log.debug("searchContent:",searchName)
+            if(searchName != ''){
+            axios.get('http://localhost:8001/selectByName',{
+                    params:{
+                        userName: searchName
+                    }
+                }).then(response => {
+                    this.$log.debug(response)
+                    this.userData = response.data
+                }).catch(error => {
+                    this.$log.debug(error)
+                })
+            }else{
+                this.getData()
+            }
+        }
     },
     created() {
         this.getData()

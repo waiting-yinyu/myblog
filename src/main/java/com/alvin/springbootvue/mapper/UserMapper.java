@@ -24,6 +24,9 @@ public interface UserMapper {
 	@Select("select * from user where id = #{id}")
 	User selectById(int id);
 
+	@Select("select * from user where userName like #{userName}")
+	List<User> selectByName(String userName);
+
 	@Insert("insert into user(userName,userAge,userAddress) values (#{userName},#{userAge},#{userAddress})")
 	void addUser(User user);
 

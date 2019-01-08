@@ -46,4 +46,9 @@ public class UserController {
 	public void deleteId(String id) {
 		userService.deleteUser(Integer.parseInt(id));
 	}
+
+	@RequestMapping(value = "/selectByName", method = RequestMethod.GET)
+	public List<User> selectByName(String userName) {
+		return userService.selectByName("%" + userName + "%");
+	}
 }

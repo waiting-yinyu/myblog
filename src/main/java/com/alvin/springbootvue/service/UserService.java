@@ -15,6 +15,8 @@ public interface UserService {
 
 	User selectById(int id);
 
+	List<User> selectByName(String userName);
+
 	void addUser(User user);
 
 	void updateUser(User user);
