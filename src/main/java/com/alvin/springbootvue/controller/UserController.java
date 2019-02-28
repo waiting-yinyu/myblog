@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alvin.springbootvue.entity.User;
+import com.alvin.springbootvue.service.RedisService;
 import com.alvin.springbootvue.service.UserService;
 
 /**
@@ -20,21 +21,33 @@ import com.alvin.springbootvue.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RedisService redisService;
 
 	@RequestMapping(value = "/selectAll", method = RequestMethod.GET)
 	public List<User> selectAll() {
+		System.out.println("断点");
 		return userService.selectUserAll();
 	}
 
 	@RequestMapping(value = "/selectId", method = RequestMethod.GET)
 	public User selectId(String id) {
-		User user = userService.selectById(Integer.parseInt(id));
-		return user;
+		User res = (User)redisService.get(id);
+		return res;
+		/*User user = userService.selectById(Integer.parseInt(id));
+		return user;*/
 	}
 
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public void addUser(User user) {
-		userService.addUser(user);
+	public String addUser(String userName,String userAge,String userAddress) {
+//		User user = new User(id, userName, userAge, userAddress);
+		User user = new User();
+		user.setUserAge(userAge);
+		user.setUserName(userName);
+		user.setUserAddress(userAddress);
+		redisService.set(1 + "", user.getUserName());
+		return "success";
 	}
 
 	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
