@@ -64,4 +64,5 @@ public class UserController {
 	public List<User> selectByName(String userName) {
 		return userService.selectByName("%" + userName + "%");
 	}
+	
 }
