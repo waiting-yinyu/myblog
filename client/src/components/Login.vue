@@ -1,6 +1,6 @@
 <template>
     <div class="login-container">
-        <el-form :model="userData" :rules="rules2" status-icon="" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm login-page">
+        <el-form :model="userData" :rules="rules" status-icon="" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm login-page">
             <h3 class="title">系统登录</h3>
             <el-form-item prop="username">
                 <el-input type="text" v-model="userData.username" auto-complete="off" placeholder="用户名" ></el-input>
@@ -27,7 +27,7 @@ export default {
                 username: '',
                 password: ''
             },
-            rules2: {
+            rules: {
                 username: [{required: true, message: 'please enter your account', trigger: 'blur'}],
                 password: [{required: true, message: 'enter your password', trigger: 'blur'}] 
             },
@@ -57,25 +57,6 @@ export default {
                     })
                 }
             })
-            // this.$refs.ruleForm2.validate((valid) => {
-            //     if(valid){
-            //         this.logining = true;
-            //         if(this.ruleForm2.username === 'admin' && 
-            //            this.ruleForm2.password === '123456'){
-            //                this.logining = false;
-            //                sessionStorage.setItem('user', this.ruleForm2.username);
-            //                this.$router.push({path: '/'});
-            //         }else{
-            //             this.logining = false;
-            //             this.$alert('username or password wrong!', 'info', {
-            //                 confirmButtonText: 'ok'
-            //             })
-            //         }
-            //     }else{
-            //         this.$log.debug('error submit!');
-            //         return false;
-            //     }
-            // })
         }
     }
 }
