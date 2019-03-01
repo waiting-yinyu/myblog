@@ -35,4 +35,7 @@ public interface UserMapper {
 
 	@Delete("delete from user where id = #{id}")
 	void deleteUser(int id);
+
+	@Select("select * from user where username = #{username}")
+	User VerifyUser(String username);
 }

@@ -43,10 +43,10 @@ public class UserController {
 	public String addUser(String userName,String userAge,String userAddress) {
 //		User user = new User(id, userName, userAge, userAddress);
 		User user = new User();
-		user.setUserAge(userAge);
-		user.setUserName(userName);
-		user.setUserAddress(userAddress);
-		redisService.set(1 + "", user.getUserName());
+//		user.setUserAge(userAge);
+//		user.setUserName(userName);
+//		user.setUserAddress(userAddress);
+//		redisService.set(1 + "", user.getUserName());
 		return "success";
 	}
 

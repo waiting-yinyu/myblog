@@ -50,4 +50,9 @@ public class UserServiceImpl implements UserService {
 		userMapper.deleteUser(id);
 	}
 
+	@Override
+	public User VerifyUser(String username) {
+		User user = userMapper.VerifyUser(username);
+		return user;
+	}
 }

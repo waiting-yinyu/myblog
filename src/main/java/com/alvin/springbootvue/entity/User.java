@@ -1,5 +1,7 @@
 package com.alvin.springbootvue.entity;
 
+import java.util.Date;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +17,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
 	private int id;
-	private String userName;
-	private String userAge;
-	private String userAddress;
+	private String username;
+	private String password;
+	private Date addtime;
+	private String adduser;
 }
