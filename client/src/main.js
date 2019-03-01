@@ -3,17 +3,16 @@ import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import VueLogger from 'vuejs-logger'
 
 Vue.config.productionTip = false
 
-import VueLogger from 'vuejs-logger'
-
 const options = {
   isEnabled: true,
-  logLevel : 'debug',
-  stringifyArguments : false,
-  showLogLevel : true,
-  showMethodName : false,
+  logLevel: 'debug',
+  stringifyArguments: false,
+  showLogLevel: true,
+  showMethodName: false,
   separator: '|',
   showConsoleColors: true
 }

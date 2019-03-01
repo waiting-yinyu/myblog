@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="center" style="width: 752px;">
         <el-input v-model="searchContent" placeholder="请输入内容"></el-input><el-button @click="search(searchContent)">默认按钮</el-button>
         <el-table :data = 'userData' height="1080" stripe border style="width: 100%">
@@ -17,7 +16,6 @@
             </el-table-column>
         </el-table>
     </div>
-  </div>
 </template>
 
 <script>
