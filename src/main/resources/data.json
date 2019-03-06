@@ -1,0 +1,20 @@
+{
+	"success": true,
+	"userDatas": [
+		{
+			"id": 1001,
+			"name": "zhangsan",
+			"password": "123456",
+			"balance": 80,
+			"adduser": "admin",
+			"addtime": "2019-3-4",
+			"cardDatas": [
+				{
+					"RMB_FIFTY": 1,
+					"RMB_ONE_HUNDRED": 2,
+					"RMB_TWO_HUNDRED": 3
+				}
+			]
+		}
+	]
+}
